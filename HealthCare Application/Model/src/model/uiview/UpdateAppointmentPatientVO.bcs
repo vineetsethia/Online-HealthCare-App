@@ -1,0 +1,15 @@
+//Groovy Scripts for model.uiview.UpdateAppointmentPatientVO
+
+package model.uiview
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+
+
+
+@VariableExpression(path="reg_time")
+def reg_time_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

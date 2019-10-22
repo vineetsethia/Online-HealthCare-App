@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="DoctorProfileFlow">
+    <default-activity>DoctorProfile</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__7">
+      <name>doctorId</name>
+      <value>#{sessionScope.doctorId}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="DoctorProfile">
+      <page>/ui/pages/DoctorProfile.jspx</page>
+    </view>
+    <view id="EditDoctorProfile">
+      <page>/ui/pages/EditDoctorProfile.jspx</page>
+    </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>doctorProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ScheduledAppointments">
+      <page>/ui/pages/ScheduledAppointments.jspx</page>
+    </view>
+    <view id="ScheduledAppointmentDetail">
+      <page>/ui/pages/ScheduledAppointmentDetail.jspx</page>
+    </view>
+    <task-flow-call id="AppointmentHistoryDoctorFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/ui/flow/AppointmentHistoryDoctorFlow.xml</document>
+        <id>AppointmentHistoryDoctorFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>EditDoctorProfile</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>DoctorProfile</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>editDoctorProfile</from-outcome>
+        <to-activity-id>EditDoctorProfile</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ScheduledAppointments</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>appointmentDetail</from-outcome>
+        <to-activity-id>ScheduledAppointmentDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>doctorProfile</from-outcome>
+        <to-activity-id>DoctorProfile</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>previousAppointment</from-outcome>
+        <to-activity-id>AppointmentHistoryDoctorFlow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>scheduledAppointment</from-outcome>
+        <to-activity-id>ScheduledAppointments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

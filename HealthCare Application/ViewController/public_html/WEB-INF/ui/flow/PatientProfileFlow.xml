@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="PatientProfileFlow">
+    <default-activity>PatientProfile</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__9">
+      <name>patientId</name>
+      <value>#{sessionScope.patientId}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name>doctorInPatient</managed-bean-name>
+      <managed-bean-class>view.DoctorInPatientBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name>drate</managed-bean-name>
+      <managed-bean-class>view.DoctorRateBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="PatientProfile">
+      <page>/ui/pages/PatientProfile.jspx</page>
+    </view>
+    <view id="EditPatientProfile">
+      <page>/ui/pages/EditPatientProfile.jspx</page>
+    </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>patientProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="VisitDoctor">
+      <page>/ui/pages/VisitDoctor.jspx</page>
+    </view>
+    <view id="CancelledAppointments">
+      <page>/ui/pages/CancelledAppointments.jspx</page>
+    </view>
+    <task-flow-call id="CreateDoctorAppointmentFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/ui/flow/CreateDoctorAppointmentFlow.xml</document>
+        <id>CreateDoctorAppointmentFlow</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>doctorId</name>
+        <value>#{pageFlowScope.doctorId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <view id="MedicalHistory">
+      <page>/ui/pages/MedicalHistory.jspx</page>
+    </view>
+    <view id="MedicalHistoryDetail">
+      <page>/ui/pages/MedicalHistoryDetail.jspx</page>
+    </view>
+    <view id="CancelledAppointmentDetail">
+      <page>/ui/pages/CancelledAppointmentDetail.jspx</page>
+    </view>
+    <view id="UpcomingAppointments">
+      <page>/ui/pages/UpcomingAppointments.jspx</page>
+    </view>
+    <view id="CancelAppointment">
+      <page>/ui/pages/CancelAppointment.jspx</page>
+    </view>
+    <method-call id="Commit1">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>cancelledAppointments</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="UpcomingAppointmentDetails">
+      <page>/ui/pages/UpcomingAppointmentDetails.jspx</page>
+    </view>
+    <view id="MyWallet">
+      <page>/ui/pages/MyWallet.jspx</page>
+    </view>
+    <view id="RateDoctor">
+      <page>/ui/pages/RateDoctor.jspx</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>EditPatientProfile</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>PatientProfile</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>editPatientProfile</from-outcome>
+        <to-activity-id>EditPatientProfile</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>myWallet</from-outcome>
+        <to-activity-id>MyWallet</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>VisitDoctor</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>doctorDetails</from-outcome>
+        <to-activity-id>CreateDoctorAppointmentFlow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>patientProfile</from-outcome>
+        <to-activity-id>PatientProfile</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>scheduleAppointment</from-outcome>
+        <to-activity-id>VisitDoctor</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>cancelledAppointments</from-outcome>
+        <to-activity-id>CancelledAppointments</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>medicalHistory</from-outcome>
+        <to-activity-id>MedicalHistory</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>upcomingAppointment</from-outcome>
+        <to-activity-id>UpcomingAppointments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>MedicalHistory</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>medicalHistoryDetail</from-outcome>
+        <to-activity-id>MedicalHistoryDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>CancelledAppointments</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>cancelledAppointmentDetail</from-outcome>
+        <to-activity-id>CancelledAppointmentDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>UpcomingAppointments</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>cancelAppointment</from-outcome>
+        <to-activity-id>CancelAppointment</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>upcomingAppointmentDetail</from-outcome>
+        <to-activity-id>UpcomingAppointmentDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>CancelAppointment</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>update</from-outcome>
+        <to-activity-id>Commit1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>MyWallet</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>MedicalHistoryDetail</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ratingDone</from-outcome>
+        <to-activity-id>RateDoctor</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>RateDoctor</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>MedicalHistoryDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

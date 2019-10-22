@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="VisitDoctorPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DoctorJoinAddress1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="DoctorJoinAddress1Iterator"/>
+    <searchRegion Criteria="SearchDoctors" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DoctorJoinAddress1Iterator" id="SearchDoctorsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DoctorJoinAddress1Iterator" id="DoctorJoinAddress1">
+      <nodeDefinition DefName="model.uiview.DoctorJoinAddressVO" Name="DoctorJoinAddress10">
+        <AttrNames>
+          <Item Value="DoctorId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Specialization"/>
+          <Item Value="AverageRating"/>
+          <Item Value="RatingCount"/>
+          <Item Value="City"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DoctorJoinAddress1Iterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AppModuleAMDataControl.DoctorJoinAddress1" DataControl="AppModuleAMDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{row.DoctorId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

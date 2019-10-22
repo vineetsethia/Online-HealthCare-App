@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="ScheduledAppointmentDetailPageDef" Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScheduledAppointmentDoctor1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="ScheduledAppointmentDoctor1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="AppointmentId">
+      <AttrNames>
+        <Item Value="AppointmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="AppointmentDate">
+      <AttrNames>
+        <Item Value="AppointmentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="TimeHour">
+      <AttrNames>
+        <Item Value="TimeHour"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="TimeMin">
+      <AttrNames>
+        <Item Value="TimeMin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="TimeMeridian">
+      <AttrNames>
+        <Item Value="TimeMeridian"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="AppointmentStatus">
+      <AttrNames>
+        <Item Value="AppointmentStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScheduledAppointmentDoctor1Iterator" id="AverageRating">
+      <AttrNames>
+        <Item Value="AverageRating"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

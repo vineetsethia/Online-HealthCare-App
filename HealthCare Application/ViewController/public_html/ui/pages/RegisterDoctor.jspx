@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="RegisterDoctor.jspx" id="d1">
+         <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+                    <f:facet name="centralContent">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.DOCTOR_REGISTRATION}" id="ph1">
+                 <f:facet name="context"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t1">
+                                    <af:button text="#{viewcontrollerBundle.REGISTER}" id="b1"
+                                               action="#{dreg.navigate}"/>
+                                     <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="loginUser" immediate="true"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:panelSplitter id="ps2" inlineStyle="width:100%;" splitterPosition="532">
+                                <f:facet name="first">
+                                    <af:panelFormLayout id="pfl1">
+                                        <f:facet name="footer">
+                                            <af:inputText label="#{viewcontrollerBundle.CONTACT_NUMBER}" id="it2"
+                                                          value="#{dreg.contact}" required="true"/>
+                                            <af:inputText label="Label 3" id="it3"/>
+                                        </f:facet>
+                                        <af:outputText value="#{viewcontrollerBundle.PERSONAL_DETAILS}" id="ot1"/>
+                                        <af:inputText label="#{viewcontrollerBundle.FIRST_NAME}" id="it1"
+                                                      value="#{dreg.firstName}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.LAST_NAME}" id="it4"
+                                                      value="#{dreg.lastName}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.EMAIL}" id="it5"
+                                                      value="#{dreg.email}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.PASSWORD}" id="it6"
+                                                      value="#{dreg.password}" secret="true" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.SPECIALIZATION}" id="it13"
+                                                      value="#{dreg.specialization}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.CONSULTATION_FEE}" id="it14"
+                                                      value="#{dreg.fee}" required="true"/>
+                                    </af:panelFormLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelFormLayout id="pfl2">
+                                        <f:facet name="footer"/>
+                                        <af:outputText value="#{viewcontrollerBundle.ADDRESS_DETAILS_}" id="ot2"/>
+                                        <af:inputText label="#{viewcontrollerBundle.STREET}" id="it7"
+                                                      value="#{dreg.street}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.AREA}" id="it8"
+                                                      value="#{dreg.area}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.CITY}" id="it9"
+                                                      value="#{dreg.city}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.STATEPROVINCE}" id="it10"
+                                                      value="#{dreg.state}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.COUNTRY}" id="it11"
+                                                      value="#{dreg.country}" required="true"/>
+                                        <af:inputText label="#{viewcontrollerBundle.PIN}" id="it12"
+                                                      value="#{dreg.pin}" required="true"/>
+                                    </af:panelFormLayout>
+                                </f:facet>
+                            </af:panelSplitter>
+                            <af:spacer width="10" height="50" id="s1"/>
+                            <af:panelFormLayout id="pfl3">
+                                <f:facet name="footer"/>
+                                <af:outputText value="#{viewcontrollerBundle.VISITING_HOURS_DETAILS}" id="ot3"/>
+                                <af:panelSplitter id="ps1" inlineStyle="width:1209px;" splitterPosition="526">
+                                    <f:facet name="first">
+                                        <af:panelFormLayout id="pfl4">
+                                            <f:facet name="footer"/>
+                                            <af:outputText value="#{viewcontrollerBundle.START_TIME}" id="ot4"/>
+                                            <af:inputText label="#{viewcontrollerBundle.HOUR_START}" id="it15"
+                                                          value="#{dreg.hourStart}" required="true"/>
+                                            <af:inputText label="#{viewcontrollerBundle.MINUTE_START}" id="it16"
+                                                          value="#{dreg.minStart}" required="true"/>
+                                            <af:inputText label="#{viewcontrollerBundle.MERIDIAN_START}" id="it17"
+                                                          value="#{dreg.medStart}" required="true"/>
+                                        </af:panelFormLayout>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:panelFormLayout id="pfl5">
+                                            <f:facet name="footer"/>
+                                            <af:outputText value="#{viewcontrollerBundle.END_TIME}" id="ot5"/>
+                                            <af:inputText label="#{viewcontrollerBundle.HOUR_END}" id="it18"
+                                                          value="#{dreg.hourEnd}" required="true"/>
+                                            <af:inputText label="#{viewcontrollerBundle.MINUTE_END}" id="it19"
+                                                          value="#{dreg.minEnd}" required="true"/>
+                                            <af:inputText label="#{viewcontrollerBundle.MERIDIAN_END}" id="it20"
+                                                          value="#{dreg.medEnd}" required="true"/>
+                                        </af:panelFormLayout>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+                    </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

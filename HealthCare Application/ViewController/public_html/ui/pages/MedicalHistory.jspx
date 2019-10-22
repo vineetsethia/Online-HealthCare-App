@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="MedicalHistory.jspx" id="d1">
+            <af:messages id="m1"/>
+             <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="b5"
+                                       inlineStyle="width:200px;" action="upcomingAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.CANCELLED_APPOINTMENTS}" id="b6"
+                                       inlineStyle="width: 200px;" action="cancelledAppointments"/>
+                            <af:button text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="b7"
+                                       inlineStyle="width: 200px;" action="medicalHistory"/>
+                            <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                                       inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.MedicalHistory2.collectionModel}" var="row"
+                              rows="#{bindings.MedicalHistory2.rangeSize}"
+                              emptyText="#{bindings.MedicalHistory2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.MedicalHistory2.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.MedicalHistory2.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.MedicalHistory2.rangeSize}"
+                              filterModel="#{bindings.MedicalHistory2Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.MedicalHistory2Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.AppointmentId.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalHistory2.hints.AppointmentId.label}"
+                                   id="c1" width="100">
+                            <af:link id="l1" action="medicalHistoryDetail">
+                                <af:outputText value="#{row.AppointmentId}"
+                                               shortDesc="#{bindings.MedicalHistory2.hints.AppointmentId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.MedicalHistory2.hints.AppointmentId.format}"/>
+                                </af:outputText>
+                                    </af:link>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.AppointmentDate.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.MedicalHistory2.hints.AppointmentDate.label}" id="c2"
+                                   width="100">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.MedicalHistory2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AppointmentDate.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.MedicalHistory2.hints.AppointmentDate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.AppointmentDate}"
+                                           shortDesc="#{bindings.MedicalHistory2.hints.AppointmentDate.tooltip}"
+                                           id="ot2">
+                                <af:convertDateTime pattern="#{bindings.MedicalHistory2.hints.AppointmentDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.TimeHour.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalHistory2.hints.TimeHour.label}"
+                                   id="c3" width="100">
+                            <af:outputText value="#{row.TimeHour}"
+                                           shortDesc="#{bindings.MedicalHistory2.hints.TimeHour.tooltip}" id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.MedicalHistory2.hints.TimeHour.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.TimeMin.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalHistory2.hints.TimeMin.label}" id="c4"
+                                   width="100">
+                            <af:outputText value="#{row.TimeMin}"
+                                           shortDesc="#{bindings.MedicalHistory2.hints.TimeMin.tooltip}" id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.MedicalHistory2.hints.TimeMin.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.TimeMeridian.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalHistory2.hints.TimeMeridian.label}"
+                                   id="c5" width="100">
+                            <af:outputText value="#{row.TimeMeridian}"
+                                           shortDesc="#{bindings.MedicalHistory2.hints.TimeMeridian.tooltip}" id="ot5"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalHistory2.hints.AppointmentStatus.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.MedicalHistory2.hints.AppointmentStatus.label}" id="c6"
+                                   width="711">
+                            <af:outputText value="#{row.AppointmentStatus}"
+                                           shortDesc="#{bindings.MedicalHistory2.hints.AppointmentStatus.tooltip}"
+                                           id="ot6"/>
+                        </af:column>
+                    </af:table>
+                </af:panelHeader>
+                <af:panelHeader text="#{viewcontrollerBundle.MEDICAL_PRESCRIPTION_DETAILS_}" id="ph2">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.MedicalConsumption4.collectionModel}" var="row"
+                              rows="#{bindings.MedicalConsumption4.rangeSize}"
+                              emptyText="#{bindings.MedicalConsumption4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.MedicalConsumption4.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.MedicalConsumption4.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.MedicalConsumption4.rangeSize}"
+                              filterModel="#{bindings.MedicalConsumption4Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.MedicalConsumption4Query.processQuery}" varStatus="vs" id="t2">
+                        <af:column sortProperty="#{bindings.MedicalConsumption4.hints.Category.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalConsumption4.hints.Category.label}"
+                                   id="c7" width="100">
+                            <af:selectOneChoice value="#{row.bindings.Category.inputValue}"
+                                                label="#{row.bindings.Category.label}"
+                                                required="#{bindings.MedicalConsumption4.hints.Category.mandatory}"
+                                                shortDesc="#{bindings.MedicalConsumption4.hints.Category.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Category.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Category.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalConsumption4.hints.Name.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.MedicalConsumption4.hints.Name.label}"
+                                   id="c8" width="100">
+                            <af:outputText value="#{row.Name}"
+                                           shortDesc="#{bindings.MedicalConsumption4.hints.Name.tooltip}" id="ot7"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalConsumption4.hints.CourseDuration.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.MedicalConsumption4.hints.CourseDuration.label}" id="c9"
+                                   width="100">
+                            <af:outputText value="#{row.CourseDuration}"
+                                           shortDesc="#{bindings.MedicalConsumption4.hints.CourseDuration.tooltip}"
+                                           id="ot8"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalConsumption4.hints.DosagePerDay.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.MedicalConsumption4.hints.DosagePerDay.label}" id="c10"
+                                   width="100">
+                            <af:outputText value="#{row.DosagePerDay}"
+                                           shortDesc="#{bindings.MedicalConsumption4.hints.DosagePerDay.tooltip}"
+                                           id="ot9"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.MedicalConsumption4.hints.Description.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.MedicalConsumption4.hints.Description.label}" id="c11"
+                                   width="822">
+                            <af:outputText value="#{row.Description}"
+                                           shortDesc="#{bindings.MedicalConsumption4.hints.Description.tooltip}"
+                                           id="ot10"/>
+                        </af:column>
+                    </af:table>
+                </af:panelHeader>
+            </af:form>
+               </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

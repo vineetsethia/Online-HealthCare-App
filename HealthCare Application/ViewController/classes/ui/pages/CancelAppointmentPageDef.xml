@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CancelAppointmentPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initPatientIdCall" taskFlowId="WEB-INF/ui/flow/initPatientId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="UpdateAppointmentPatient1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="UpdateAppointmentPatient1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="UpdateAppointmentPatient1Iterator" id="UpdateAppointmentPatient1">
+      <nodeDefinition DefName="model.uiview.UpdateAppointmentPatientVO" Name="UpdateAppointmentPatient10">
+        <AttrNames>
+          <Item Value="AppointmentId"/>
+          <Item Value="AppointmentDate"/>
+          <Item Value="TimeHour"/>
+          <Item Value="TimeMin"/>
+          <Item Value="TimeMeridian"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="RegistrationTimestamp"/>
+          <Item Value="AppointmentStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppointmentEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="APPOINTMENT"
+  AliasName="AppointmentEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="AppointmentId"
+    ColumnName="APPOINTMENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="DoctorId"
+    IsNotNull="true"
+    ColumnName="DOCTOR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="PatientId"
+    IsNotNull="true"
+    ColumnName="PATIENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="RegistrationTimestamp"
+    ColumnName="REGISTRATION_TIMESTAMP"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="AppointmentDate"
+    ColumnName="APPOINTMENT_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="TimeHour"
+    IsNotNull="true"
+    ColumnName="TIME_HOUR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="TimeMin"
+    IsNotNull="true"
+    ColumnName="TIME_MIN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APPOINTMENT"/>
+  <Attribute
+    Name="TimeMeridian"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TIME_MERIDIAN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APPOINTMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppointmentStatus"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="APPOINTMENT_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APPOINTMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Doctor"
+    Association="model.assoc.AppointmentFk1Assoc"
+    AssociationEnd="model.assoc.AppointmentFk1Assoc.Doctor"
+    AssociationOtherEnd="model.assoc.AppointmentFk1Assoc.Appointment"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DoctorRating"
+    Association="model.assoc.DoctorRatingFk1Assoc"
+    AssociationEnd="model.assoc.DoctorRatingFk1Assoc.DoctorRating"
+    AssociationOtherEnd="model.assoc.DoctorRatingFk1Assoc.Appointment"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MedicalConsumption"
+    Association="model.assoc.MedicalConsumptionFk1Assoc"
+    AssociationEnd="model.assoc.MedicalConsumptionFk1Assoc.MedicalConsumption"
+    AssociationOtherEnd="model.assoc.MedicalConsumptionFk1Assoc.Appointment"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Patient"
+    Association="model.assoc.AppointmentFk2Assoc"
+    AssociationEnd="model.assoc.AppointmentFk2Assoc.Patient"
+    AssociationOtherEnd="model.assoc.AppointmentFk2Assoc.Appointment"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PatientRating"
+    Association="model.assoc.PatientRatingFk1Assoc"
+    AssociationEnd="model.assoc.PatientRatingFk1Assoc.PatientRating"
+    AssociationOtherEnd="model.assoc.PatientRatingFk1Assoc.Appointment"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AppointmentPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APPOINTMENT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.AppointmentEO.AppointmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppointmentFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DOCTOR_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APPOINTMENT_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.AppointmentEO.DoctorId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppointmentFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PATIENT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APPOINTMENT_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.AppointmentEO.PatientId"/>
+    </AttrArray>
+  </Key>
+</Entity>

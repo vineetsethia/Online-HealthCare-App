@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="CancelAppointment.jspx" id="d1">
+            <af:messages id="m1"/>
+             <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="b5"
+                                       inlineStyle="width:200px;" action="upcomingAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.CANCELLED_APPOINTMENTS}" id="b6"
+                                       inlineStyle="width: 200px;" action="cancelledAppointments"/>
+                            <af:button text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="b7"
+                                       inlineStyle="width: 200px;" action="medicalHistory"/>
+                           <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                           inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.CANCEL_APPOINTMENT}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:outputText value="#{viewcontrollerBundle.YOU_CAN_CANCEL_ONLY_THOSE_APPOINTMENTS_WHICH_ARE_BOOKED_WITHIN_2_HOURS_TIMEFRAME_}" id="ot1"
+                                   inlineStyle="font-size:medium; color:Blue;"/>
+                </af:panelHeader>
+                <af:panelHeader text="#{viewcontrollerBundle.UPDATE_APPOINTMENT_STATUS}" id="ph2">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t2">
+                            <af:button text="#{viewcontrollerBundle.UPDATE}" id="b1" action="update"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                            <af:table value="#{bindings.UpdateAppointmentPatient1.collectionModel}" var="row"
+                                      rows="#{bindings.UpdateAppointmentPatient1.rangeSize}"
+                                      emptyText="#{bindings.UpdateAppointmentPatient1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0" fetchSize="#{bindings.UpdateAppointmentPatient1.rangeSize}"
+                                      id="t1">
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.label}"
+                                           id="c1">
+                                    <af:inputText value="#{row.bindings.AppointmentId.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.tooltip}"
+                                                  id="it1" readOnly="true">
+                                        <f:validator binding="#{row.bindings.AppointmentId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.UpdateAppointmentPatient1.hints.AppointmentId.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.label}"
+                                           id="c2">
+                                    <af:inputDate value="#{row.bindings.AppointmentDate.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.displayWidth}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.tooltip}"
+                                                  id="id1" readOnly="true">
+                                        <f:validator binding="#{row.bindings.AppointmentDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.UpdateAppointmentPatient1.hints.AppointmentDate.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.label}"
+                                           id="c3">
+                                    <af:inputText value="#{row.bindings.TimeHour.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.tooltip}"
+                                                  id="it2" readOnly="true">
+                                        <f:validator binding="#{row.bindings.TimeHour.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.UpdateAppointmentPatient1.hints.TimeHour.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.label}"
+                                           id="c4">
+                                    <af:inputText value="#{row.bindings.TimeMin.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.tooltip}"
+                                                  id="it3" readOnly="true">
+                                        <f:validator binding="#{row.bindings.TimeMin.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.UpdateAppointmentPatient1.hints.TimeMin.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.label}"
+                                           id="c5">
+                                    <af:inputText value="#{row.bindings.TimeMeridian.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.TimeMeridian.tooltip}"
+                                                  id="it4" readOnly="true">
+                                        <f:validator binding="#{row.bindings.TimeMeridian.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.FirstName.label}"
+                                           id="c6">
+                                    <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.FirstName.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.FirstName.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.FirstName.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.FirstName.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.FirstName.tooltip}"
+                                                  id="it5" readOnly="true">
+                                        <f:validator binding="#{row.bindings.FirstName.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.LastName.label}"
+                                           id="c7">
+                                    <af:inputText value="#{row.bindings.LastName.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.LastName.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.LastName.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.LastName.displayWidth}"
+                                                  maximumLength="#{bindings.UpdateAppointmentPatient1.hints.LastName.precision}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.LastName.tooltip}"
+                                                  id="it6" readOnly="true">
+                                        <f:validator binding="#{row.bindings.LastName.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.label}"
+                                           id="c8">
+                                    <af:inputDate value="#{row.bindings.RegistrationTimestamp.inputValue}"
+                                                  label="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.label}"
+                                                  required="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.mandatory}"
+                                                  columns="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.displayWidth}"
+                                                  shortDesc="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.tooltip}"
+                                                  id="id2" readOnly="true">
+                                        <f:validator binding="#{row.bindings.RegistrationTimestamp.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.UpdateAppointmentPatient1.hints.RegistrationTimestamp.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column headerText="#{bindings.UpdateAppointmentPatient1.hints.AppointmentStatus.label}"
+                                           id="c9">
+                                    <af:selectOneChoice value="#{row.bindings.AppointmentStatus.inputValue}"
+                                                        label="#{row.bindings.AppointmentStatus.label}"
+                                                        required="#{bindings.UpdateAppointmentPatient1.hints.AppointmentStatus.mandatory}"
+                                                        shortDesc="#{bindings.UpdateAppointmentPatient1.hints.AppointmentStatus.tooltip}"
+                                                        id="soc1">
+                                        <f:selectItems value="#{row.bindings.AppointmentStatus.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.AppointmentStatus.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                            </af:table>
+                        </af:panelHeader>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

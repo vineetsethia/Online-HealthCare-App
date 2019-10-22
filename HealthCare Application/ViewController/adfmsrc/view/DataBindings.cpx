@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.11.57" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/ui/pages/PatientProfile.jspx" usageId="view_PatientProfilePageDef"/>
+    <page path="/WEB-INF/ui/flow/PatientProfileFlow.xml#PatientProfileFlow@Commit"
+          usageId="view_adfc_config___CommitPageDef"/>
+    <page path="/WEB-INF/ui/flow/initPatientId.xml#initPatientId@initPatientId3"
+          usageId="view_initPatientId_initPatientId_initPatientIdPageDef"/>
+    <page path="/ui/pages/EditPatientProfile.jspx" usageId="view_EditPatientProfilePageDef"/>
+    <page path="/WEB-INF/ui/flow/UpcomingPatientAppointments.xml#UpcomingPatientAppointments@Commit2"
+          usageId="view_PatientProfileFlow_PatientProfileFlow_Commit2PageDef"/>
+    <page path="/ui/pages/VisitDoctor.jspx" usageId="view_VisitDoctorPageDef"/>
+    <page path="/ui/pages/DetailsAndAvailability.jspx" usageId="view_DetailsAndAvailabilityPageDef"/>
+    <page path="/WEB-INF/ui/flow/initDocPatient.xml#initDocPatient@initDocPatient2"
+          usageId="view_initDocPatient_initDocPatient_initDocPatientPageDef"/>
+    <page path="/WEB-INF/ui/flow/CreateDoctorAppointmentFlow.xml#CreateDoctorAppointmentFlow@Commit"
+          usageId="view_CreateDoctorAppointmentFlow_CreateDoctorAppointmentFlow_CommitPageDef"/>
+    <page path="/ui/pages/LoginUser.jspx" usageId="view_LoginPatientPageDef"/>
+    <page path="/WEB-INF/ui/flow/DoctorProfileFlow.xml#DoctorProfileFlow@Commit"
+          usageId="view_adfc_config___CommitPageDef1"/>
+    <page path="/ui/pages/DoctorProfile.jspx" usageId="view_DoctorProfilePageDef"/>
+    <page path="/WEB-INF/ui/flow/initDoctorId.xml#initDoctorId@initDocId"
+          usageId="view_initDoctorId_initDoctorId_initDocIdPageDef"/>
+    <page path="/ui/pages/EditDoctorProfile.jspx" usageId="view_EditDoctorProfilePageDef"/>
+    <page path="/WEB-INF/ui/flow/AdminProfileFlow.xml#AdminProfileFlow@Commit"
+          usageId="view_adfc_config___CommitPageDef11"/>
+    <page path="/WEB-INF/ui/flow/initAdminId.xml#initAdminId@initAdminId1"
+          usageId="view_initAdminId_initAdminId_initAdminIdPageDef"/>
+    <page path="/ui/pages/AdminProfile.jspx" usageId="view_AdminProfilePageDef"/>
+    <page path="/ui/pages/EditAdminProfile.jspx" usageId="view_EditAdminProfilePageDef"/>
+    <page path="/ui/pages/ScheduledAppointments.jspx" usageId="view_ScheduledAppointmentsPageDef"/>
+    <page path="/ui/pages/ScheduledAppointmentDetail.jspx" usageId="view_ScheduledAppointmentDetailPageDef"/>
+    <page path="/WEB-INF/ui/flow/AppointmentHistoryDoctorFlow.xml#AppointmentHistoryDoctorFlow@Commit1"
+          usageId="view_DoctorProfileFlow_DoctorProfileFlow_Commit1PageDef"/>
+    <page path="/ui/pages/PreviousAppointments.jspx" usageId="view_PreviousAppointmentsPageDef"/>
+    <page path="/ui/pages/NewPrescription.jspx" usageId="view_NewPrescriptionPageDef"/>
+    <page path="/ui/pages/CancelledAppointments.jspx" usageId="view_CancelledAppointmentsPageDef"/>
+    <page path="/ui/pages/PreviousAppointmentDetail.jspx" usageId="view_PreviousAppointmentDetailPageDef"/>
+    <page path="/WEB-INF/ui/flow/PatientProfileFlow.xml#PatientProfileFlow@Commit1"
+          usageId="view_PatientProfileFlow_PatientProfileFlow_Commit1PageDef"/>
+    <page path="/ui/pages/CancelledAppointmentDetail.jspx" usageId="view_CancelledAppointmentDetailPageDef"/>
+    <page path="/ui/pages/UpcomingAppointments.jspx" usageId="view_UpcomingAppointmentsPageDef"/>
+    <page path="/ui/pages/UpcomingAppointmentDetails.jspx" usageId="view_UpcomingAppointmentDetailsPageDef"/>
+    <page path="/ui/pages/CancelAppointment.jspx" usageId="view_CancelAppointmentPageDef"/>
+    <page path="/ui/pages/MedicalHistory.jspx" usageId="view_MedicalHistoryPageDef"/>
+    <page path="/ui/pages/MedicalHistoryDetail.jspx" usageId="view_MedicalHistoryDetailPageDef"/>
+    <page path="/WEB-INF/ui/flow/AppointmentHistoryDoctorFlow.xml#AppointmentHistoryDoctorFlow@CreateInsert1"
+          usageId="view_AppointmentHistoryDoctorFlow_AppointmentHistoryDoctorFlow_CreateInsert1PageDef"/>
+    <page path="/ui/pages/MyWallet.jspx" usageId="view_MyWalletPageDef"/>
+    <page path="/ui/pages/DataStatistics.jspx" usageId="view_DataStatisticsPageDef"/>
+    <page path="/delete.jspx" usageId="view_deletePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_PatientProfilePageDef" path="ui.pages.PatientProfilePageDef"/>
+    <page id="view_adfc_config___CommitPageDef" path="view.pageDefs.adfc_config___CommitPageDef"/>
+    <page id="view_initPatientId_initPatientId_initPatientIdPageDef"
+          path="ui.flow.initPatientId_initPatientId_initPatientIdPageDef"/>
+    <page id="view_EditPatientProfilePageDef" path="ui.pages.EditPatientProfilePageDef"/>
+    <page id="view_PatientProfileFlow_PatientProfileFlow_Commit2PageDef"
+          path="ui.flow.PatientProfileFlow_PatientProfileFlow_Commit2PageDef"/>
+    <page id="view_VisitDoctorPageDef" path="ui.pages.VisitDoctorPageDef"/>
+    <page id="view_DetailsAndAvailabilityPageDef" path="view.pageDefs.DetailsAndAvailabilityPageDef"/>
+    <page id="view_initDocPatient_initDocPatient_initDocPatientPageDef"
+          path="ui.flow.initDocPatient_initDocPatient_initDocPatientPageDef"/>
+    <page id="view_CreateDoctorAppointmentFlow_CreateDoctorAppointmentFlow_CommitPageDef"
+          path="ui.flow.CreateDoctorAppointmentFlow_CreateDoctorAppointmentFlow_CommitPageDef"/>
+    <page id="view_LoginPatientPageDef" path="ui.pages.LoginPatientPageDef"/>
+    <page id="view_adfc_config___CommitPageDef1" path="view.pageDefs.adfc_config___CommitPageDef1"/>
+    <page id="view_DoctorProfilePageDef" path="ui.pages.DoctorProfilePageDef"/>
+    <page id="view_initDoctorId_initDoctorId_initDocIdPageDef"
+          path="ui.flow.initDoctorId_initDoctorId_initDocIdPageDef"/>
+    <page id="view_EditDoctorProfilePageDef" path="ui.pages.EditDoctorProfilePageDef"/>
+    <page id="view_adfc_config___CommitPageDef11" path="view.pageDefs.adfc_config___CommitPageDef11"/>
+    <page id="view_initAdminId_initAdminId_initAdminIdPageDef"
+          path="ui.flow.initAdminId_initAdminId_initAdminIdPageDef"/>
+    <page id="view_AdminProfilePageDef" path="ui.pages.AdminProfilePageDef"/>
+    <page id="view_EditAdminProfilePageDef" path="ui.pages.EditAdminProfilePageDef"/>
+    <page id="view_ScheduledAppointmentsPageDef" path="ui.pages.ScheduledAppointmentsPageDef"/>
+    <page id="view_ScheduledAppointmentDetailPageDef" path="ui.pages.ScheduledAppointmentDetailPageDef"/>
+    <page id="view_DoctorProfileFlow_DoctorProfileFlow_Commit1PageDef"
+          path="ui.flow.DoctorProfileFlow_DoctorProfileFlow_Commit1PageDef"/>
+    <page id="view_PreviousAppointmentsPageDef" path="ui.pages.PreviousAppointmentsPageDef"/>
+    <page id="view_NewPrescriptionPageDef" path="ui.pages.NewPrescriptionPageDef"/>
+    <page id="view_CancelledAppointmentsPageDef" path="ui.pages.CancelledAppointmentsPageDef"/>
+    <page id="view_PreviousAppointmentDetailPageDef" path="ui.pages.PreviousAppointmentDetailPageDef"/>
+    <page id="view_PatientProfileFlow_PatientProfileFlow_Commit1PageDef"
+          path="ui.flow.PatientProfileFlow_PatientProfileFlow_Commit1PageDef"/>
+    <page id="view_CancelledAppointmentDetailPageDef" path="ui.pages.CancelledAppointmentDetailPageDef"/>
+    <page id="view_UpcomingAppointmentsPageDef" path="ui.pages.UpcomingAppointmentsPageDef"/>
+    <page id="view_UpcomingAppointmentDetailsPageDef" path="ui.pages.UpcomingAppointmentDetailsPageDef"/>
+    <page id="view_CancelAppointmentPageDef" path="ui.pages.CancelAppointmentPageDef"/>
+    <page id="view_MedicalHistoryPageDef" path="ui.pages.MedicalHistoryPageDef"/>
+    <page id="view_MedicalHistoryDetailPageDef" path="ui.pages.MedicalHistoryDetailPageDef"/>
+    <page id="view_AppointmentHistoryDoctorFlow_AppointmentHistoryDoctorFlow_CreateInsert1PageDef"
+          path="ui.flow.AppointmentHistoryDoctorFlow_AppointmentHistoryDoctorFlow_CreateInsert1PageDef"/>
+    <page id="view_MyWalletPageDef" path="ui.pages.MyWalletPageDef"/>
+    <page id="view_DataStatisticsPageDef" path="ui.pages.DataStatisticsPageDef"/>
+    <page id="view_deletePageDef" path="view.pageDefs.deletePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMDataControl" Package="model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

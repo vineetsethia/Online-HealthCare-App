@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CreateDoctorAppointmentFlow">
+    <default-activity>DetailsAndAvailability</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__7">
+      <managed-bean-name>bookApp</managed-bean-name>
+      <managed-bean-class>view.BookAppointmentBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="DetailsAndAvailability">
+      <page>/ui/pages/DetailsAndAvailability.jspx</page>
+    </view>
+    <view id="CreateAppointment">
+      <page>/ui/pages/CreateAppointment.jspx</page>
+    </view>
+    <task-flow-return id="UpcomingAppointment">
+      <outcome>
+        <name>upcomingAppointment</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>upcomingAppointment</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>scheduleAppointment</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="taskFlowReturn2">
+      <outcome>
+        <name>patientProfile</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__5">
+      <from-activity-id>DetailsAndAvailability</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>createAppointment</from-outcome>
+        <to-activity-id>CreateAppointment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id>Commit</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>upcomingAppointment</from-outcome>
+        <to-activity-id>UpcomingAppointment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>CreateAppointment</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>scheduleAppointment</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>doctorDetails</from-outcome>
+        <to-activity-id>DetailsAndAvailability</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>patientProfile</from-outcome>
+        <to-activity-id>taskFlowReturn2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

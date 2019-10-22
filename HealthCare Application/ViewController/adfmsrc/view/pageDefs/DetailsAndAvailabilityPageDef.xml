@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="DetailsAndAvailabilityPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DoctorJoinAddress1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="DoctorJoinAddress1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="DoctorId">
+      <AttrNames>
+        <Item Value="DoctorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="Specialization">
+      <AttrNames>
+        <Item Value="Specialization"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="ContactNumber">
+      <AttrNames>
+        <Item Value="ContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="AverageRating">
+      <AttrNames>
+        <Item Value="AverageRating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="RatingCount">
+      <AttrNames>
+        <Item Value="RatingCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="ConsultationFee">
+      <AttrNames>
+        <Item Value="ConsultationFee"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeHourEnd">
+      <AttrNames>
+        <Item Value="TimeHourEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeHourStart">
+      <AttrNames>
+        <Item Value="TimeHourStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeMeridianEnd">
+      <AttrNames>
+        <Item Value="TimeMeridianEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeMeridianStart">
+      <AttrNames>
+        <Item Value="TimeMeridianStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeMinEnd">
+      <AttrNames>
+        <Item Value="TimeMinEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="TimeMinStart">
+      <AttrNames>
+        <Item Value="TimeMinStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="Area">
+      <AttrNames>
+        <Item Value="Area"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="Pin">
+      <AttrNames>
+        <Item Value="Pin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="StateProvince">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DoctorJoinAddress1Iterator" id="Street">
+      <AttrNames>
+        <Item Value="Street"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

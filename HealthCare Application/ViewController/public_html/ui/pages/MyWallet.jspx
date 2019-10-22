@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="MyWallet.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="b5"
+                                       inlineStyle="width:200px;" action="upcomingAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.CANCELLED_APPOINTMENTS}" id="b6"
+                                       inlineStyle="width: 200px;" action="cancelledAppointments"/>
+                            <af:button text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="b7"
+                                       inlineStyle="width: 200px;" action="medicalHistory"/>
+                           <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                           inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.MY_WALLET}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.Balance.inputValue}"
+                                              label="#{viewcontrollerBundle.CURRENT_WALLET_BALANCE}"
+                                              required="#{bindings.Balance.hints.mandatory}"
+                                              columns="#{bindings.Balance.hints.displayWidth}"
+                                              maximumLength="#{bindings.Balance.hints.precision}"
+                                              shortDesc="#{bindings.Balance.hints.tooltip}" id="it1" readOnly="true">
+                                    <f:validator binding="#{bindings.Balance.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Balance.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.LastAddedBalance.inputValue}"
+                                              label="#{viewcontrollerBundle.ADD_MONEY_TO_WALLET}"
+                                              required="#{bindings.LastAddedBalance.hints.mandatory}"
+                                              columns="#{bindings.LastAddedBalance.hints.displayWidth}"
+                                              maximumLength="#{bindings.LastAddedBalance.hints.precision}"
+                                              shortDesc="#{bindings.LastAddedBalance.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.LastAddedBalance.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.LastAddedBalance.format}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:button text="#{viewcontrollerBundle.ADD}" id="b1" action="commit"/>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+            </af:form>
+              </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

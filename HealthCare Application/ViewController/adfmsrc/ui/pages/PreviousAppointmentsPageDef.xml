@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="PreviousAppointmentsPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initDocIdCall" taskFlowId="WEB-INF/ui/flow/initDoctorId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="PreviousAppointmentDoctor2" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="PreviousAppointmentDoctor2Iterator"/>
+    <searchRegion Binds="PreviousAppointmentDoctor2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PreviousAppointmentDoctor2Query"/>
+    <iterator Binds="MedicalConsumption3" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="MedicalConsumption3Iterator"/>
+    <searchRegion Binds="MedicalConsumption3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MedicalConsumption3Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PreviousAppointmentDoctor2Iterator" id="PreviousAppointmentDoctor2">
+      <nodeDefinition DefName="model.uiview.PreviousAppointmentDoctorVO" Name="PreviousAppointmentDoctor20">
+        <AttrNames>
+          <Item Value="AppointmentId"/>
+          <Item Value="AppointmentDate"/>
+          <Item Value="TimeHour"/>
+          <Item Value="TimeMin"/>
+          <Item Value="TimeMeridian"/>
+          <Item Value="AppointmentStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MedicalConsumption3Iterator" id="MedicalConsumption3">
+      <nodeDefinition DefName="model.uiview.MedicalConsumptionVO" Name="MedicalConsumption30">
+        <AttrNames>
+          <Item Value="MedicalConsumptionId"/>
+          <Item Value="Category"/>
+          <Item Value="Name"/>
+          <Item Value="CourseDuration"/>
+          <Item Value="DosagePerDay"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PreviousAppointmentDoctor2Iterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AppModuleAMDataControl.PreviousAppointmentDoctor2" DataControl="AppModuleAMDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{row.AppointmentId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

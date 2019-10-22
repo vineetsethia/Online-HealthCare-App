@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="initAdminId">
+    <default-activity>initAdminId1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <method-call id="initAdminId1">
+      <method>#{bindings.initAdminId.execute}</method>
+      <outcome>
+        <fixed-outcome>initAdminId</fixed-outcome>
+      </outcome>
+    </method-call>
+  </task-flow-definition>
+</adfc-config>

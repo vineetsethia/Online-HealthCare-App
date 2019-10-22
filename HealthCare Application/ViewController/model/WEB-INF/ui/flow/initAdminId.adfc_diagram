@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">initAdminId1</property>
+      <property
+         name="x">583.78516</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>initAdminId1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">330.29297</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+</SDM>

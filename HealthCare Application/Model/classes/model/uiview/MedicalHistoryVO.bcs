@@ -1,0 +1,12 @@
+//Groovy Scripts for model.uiview.MedicalHistoryVO
+
+package model.uiview
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="cur_date")
+def cur_date_VariableScript_Variable()
+{
+adf.currentDate
+}
+

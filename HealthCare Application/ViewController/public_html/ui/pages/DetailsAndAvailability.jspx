@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="DetailsAndAvailability.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                           <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                           inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.DOCTOR_DETAILS}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar">
+                                <af:toolbar id="t1">
+                                    <af:button text="#{viewcontrollerBundle.CREATE_APPOINTMENT}" id="b1"
+                                               action="#{bookApp.navigateTocreateAappointment}">
+                                        <af:setActionListener from="#{bindings.DoctorId.inputValue}"
+                                                              to="#{bookApp.doctorId}"/>
+                                    </af:button>
+                                </af:toolbar>
+                            </f:facet>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.DoctorId.inputValue}" label="#{bindings.DoctorId.hints.label}"
+                                      required="#{bindings.DoctorId.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.DoctorId.hints.displayWidth}"
+                                      maximumLength="#{bindings.DoctorId.hints.precision}"
+                                      shortDesc="#{bindings.DoctorId.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.DoctorId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DoctorId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                                      required="#{bindings.FirstName.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.FirstName.hints.displayWidth}"
+                                      maximumLength="#{bindings.FirstName.hints.precision}"
+                                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.FirstName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                                      required="#{bindings.LastName.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.LastName.hints.displayWidth}"
+                                      maximumLength="#{bindings.LastName.hints.precision}"
+                                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.LastName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Specialization.inputValue}"
+                                      label="#{bindings.Specialization.hints.label}"
+                                      required="#{bindings.Specialization.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Specialization.hints.displayWidth}"
+                                      maximumLength="#{bindings.Specialization.hints.precision}"
+                                      shortDesc="#{bindings.Specialization.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.Specialization.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ContactNumber.inputValue}"
+                                      label="#{bindings.ContactNumber.hints.label}"
+                                      required="#{bindings.ContactNumber.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ContactNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.ContactNumber.hints.precision}"
+                                      shortDesc="#{bindings.ContactNumber.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.ContactNumber.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.AverageRating.inputValue}"
+                                      label="#{bindings.AverageRating.hints.label}"
+                                      required="#{bindings.AverageRating.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.AverageRating.hints.displayWidth}"
+                                      maximumLength="#{bindings.AverageRating.hints.precision}"
+                                      shortDesc="#{bindings.AverageRating.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.AverageRating.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.AverageRating.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.RatingCount.inputValue}"
+                                      label="#{bindings.RatingCount.hints.label}"
+                                      required="#{bindings.RatingCount.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.RatingCount.hints.displayWidth}"
+                                      maximumLength="#{bindings.RatingCount.hints.precision}"
+                                      shortDesc="#{bindings.RatingCount.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.RatingCount.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.RatingCount.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ConsultationFee.inputValue}"
+                                      label="#{bindings.ConsultationFee.hints.label}"
+                                      required="#{bindings.ConsultationFee.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ConsultationFee.hints.displayWidth}"
+                                      maximumLength="#{bindings.ConsultationFee.hints.precision}"
+                                      shortDesc="#{bindings.ConsultationFee.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.ConsultationFee.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ConsultationFee.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TimeHourStart.inputValue}:#{bindings.TimeMinStart.inputValue} #{bindings.TimeMeridianStart.inputValue} - #{bindings.TimeHourEnd.inputValue}:#{bindings.TimeMinEnd.inputValue} #{bindings.TimeMeridianEnd.inputValue}"
+                                      label="#{viewcontrollerBundle.VISTING_HOURS}"
+                                      required="#{bindings.TimeHourStart.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.TimeHourStart.hints.displayWidth}"
+                                      maximumLength="#{bindings.TimeHourStart.hints.precision}"
+                                      shortDesc="#{bindings.TimeHourStart.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.TimeHourStart.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TimeHourStart.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Street.inputValue}, #{bindings.Area.inputValue}"
+                                      label="#{viewcontrollerBundle.ADDRESS_LINE_1_}"
+                                      required="#{bindings.Area.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Area.hints.displayWidth}"
+                                      maximumLength="#{bindings.Area.hints.precision}"
+                                      shortDesc="#{bindings.Area.hints.tooltip}" id="it15">
+                            <f:validator binding="#{bindings.Area.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.City.inputValue}, #{bindings.StateProvince.inputValue}, #{bindings.Country.inputValue}" label="#{viewcontrollerBundle.ADDRESS_LINE_2}"
+                                      required="#{bindings.City.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.City.hints.displayWidth}"
+                                      maximumLength="#{bindings.City.hints.precision}"
+                                      shortDesc="#{bindings.City.hints.tooltip}" id="it16">
+                            <f:validator binding="#{bindings.City.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Pin.inputValue}" label="#{bindings.Pin.hints.label}"
+                                      required="#{bindings.Pin.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Pin.hints.displayWidth}"
+                                      maximumLength="#{bindings.Pin.hints.precision}"
+                                      shortDesc="#{bindings.Pin.hints.tooltip}" id="it18">
+                            <f:validator binding="#{bindings.Pin.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </af:panelHeader>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

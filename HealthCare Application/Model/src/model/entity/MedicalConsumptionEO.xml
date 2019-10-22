@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MedicalConsumptionEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MEDICAL_CONSUMPTION"
+  AliasName="MedicalConsumptionEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="MedicalConsumptionId"
+    ColumnName="MEDICAL_CONSUMPTION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MEDICAL_CONSUMPTION"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="AppointmentId"
+    IsNotNull="true"
+    ColumnName="APPOINTMENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MEDICAL_CONSUMPTION"/>
+  <Attribute
+    Name="Category"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CATEGORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MEDICAL_CONSUMPTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MEDICAL_CONSUMPTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CourseDuration"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="COURSE_DURATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MEDICAL_CONSUMPTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DosagePerDay"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="DOSAGE_PER_DAY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MEDICAL_CONSUMPTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MEDICAL_CONSUMPTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Appointment"
+    Association="model.assoc.MedicalConsumptionFk1Assoc"
+    AssociationEnd="model.assoc.MedicalConsumptionFk1Assoc.Appointment"
+    AssociationOtherEnd="model.assoc.MedicalConsumptionFk1Assoc.MedicalConsumption"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MedicalConsumptionPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MEDICAL_CONSUMPTION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.MedicalConsumptionEO.MedicalConsumptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MedicalConsumptionFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="APPOINTMENT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MEDICAL_CONSUMPTION_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.MedicalConsumptionEO.AppointmentId"/>
+    </AttrArray>
+  </Key>
+</Entity>

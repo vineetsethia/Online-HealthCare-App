@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="CancelledAppointmentsPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initPatientIdCall" taskFlowId="WEB-INF/ui/flow/initPatientId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="CancelledAppointment1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="CancelledAppointment1Iterator"/>
+    <searchRegion Binds="CancelledAppointment1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CancelledAppointment1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CancelledAppointment1Iterator" id="CancelledAppointment1">
+      <nodeDefinition DefName="model.uiview.CancelledAppointmentVO" Name="CancelledAppointment10">
+        <AttrNames>
+          <Item Value="AppointmentId"/>
+          <Item Value="AppointmentDate"/>
+          <Item Value="TimeHour"/>
+          <Item Value="TimeMin"/>
+          <Item Value="TimeMeridian"/>
+          <Item Value="AppointmentStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CancelledAppointment1Iterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AppModuleAMDataControl.CancelledAppointment1" DataControl="AppModuleAMDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{row.AppointmentId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

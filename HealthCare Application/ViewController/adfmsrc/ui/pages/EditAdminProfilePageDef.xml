@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="EditAdminProfilePageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initAdminIdCall" taskFlowId="WEB-INF/ui/flow/initAdminId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminVO1" RangeSize="25" DataControl="AppModuleAMDataControl" id="AdminVO1Iterator"/>
+    <iterator Binds="AddressVO1" RangeSize="25" DataControl="AppModuleAMDataControl" id="AddressVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AdminVO1Iterator" id="AdminId">
+      <AttrNames>
+        <Item Value="AdminId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminVO1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminVO1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminVO1Iterator" id="ContactNumber">
+      <AttrNames>
+        <Item Value="ContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="Street">
+      <AttrNames>
+        <Item Value="Street"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="Area">
+      <AttrNames>
+        <Item Value="Area"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="StateProvince">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressVO1Iterator" id="Pin">
+      <AttrNames>
+        <Item Value="Pin"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

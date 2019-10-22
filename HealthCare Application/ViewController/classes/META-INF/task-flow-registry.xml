@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/AdminProfileFlow.xml" id="AdminProfileFlow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="adminId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ui/flow/AppointmentHistoryDoctorFlow.xml" id="AppointmentHistoryDoctorFlow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/CreateDoctorAppointmentFlow.xml" id="CreateDoctorAppointmentFlow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/DoctorProfileFlow.xml" id="DoctorProfileFlow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="doctorId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ui/flow/PatientProfileFlow.xml" id="PatientProfileFlow" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="jsp">
+      <input-parameter name="patientId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ui/flow/initAdminId.xml" id="initAdminId" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/initDocPatient.xml" id="initDocPatient" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/initDoctorId.xml" id="initDoctorId" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/ui/flow/initPatientId.xml" id="initPatientId" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+</task-flow-registry>

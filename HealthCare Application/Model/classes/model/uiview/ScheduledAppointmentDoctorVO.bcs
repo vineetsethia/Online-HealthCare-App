@@ -1,0 +1,12 @@
+//Groovy Scripts for model.uiview.ScheduledAppointmentDoctorVO
+
+package model.uiview
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="app_date")
+def app_date_VariableScript_Variable()
+{
+adf.currentDate
+}
+

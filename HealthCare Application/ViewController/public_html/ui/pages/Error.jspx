@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Error.jspx" id="d1">
+         <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+                    <f:facet name="centralContent">
+            <af:form id="f1">
+                <af:panelFormLayout id="pfl1">
+                    <f:facet name="footer"/>
+                    <af:outputText value="#{viewcontrollerBundle.OOPS__SOMETHING_WENT_WRONG___}" id="ot1"
+                                   inlineStyle="color:Red; font-size:xx-large;"/>
+                    <af:link text="#{viewcontrollerBundle.CLICK_HERE_TO_LOGIN_AGAIN__}" id="l1" action="loginUser"/>
+                </af:panelFormLayout>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

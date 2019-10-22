@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DoctorEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DOCTOR"
+  AliasName="DoctorEO"
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="DoctorId"
+    ColumnName="DOCTOR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="FirstName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="FIRST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="LAST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContactNumber"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CONTACT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="ContactNumberValidation"
+      ResId="model.entity.DoctorEO.ContactNumber_Rule_0"
+      OnAttribute="ContactNumber"
+      Pattern="[0-9]{10}"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="EmailRuleValidation"
+      ResId="model.entity.DoctorEO.Email_Rule_0"
+      OnAttribute="Email"
+      Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="AddressId"
+    IsNotNull="true"
+    ColumnName="ADDRESS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="Specialization"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="SPECIALIZATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ConsultationFee"
+    IsNotNull="true"
+    ColumnName="CONSULTATION_FEE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="AverageRating"
+    ColumnName="AVERAGE_RATING"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="RatingCount"
+    ColumnName="RATING_COUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="Password"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="PASSWORD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Balance"
+    ColumnName="BALANCE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="TimeHourStart"
+    IsNotNull="true"
+    ColumnName="TIME_HOUR_START"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="TimeMinStart"
+    IsNotNull="true"
+    ColumnName="TIME_MIN_START"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="TimeMeridianStart"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TIME_MERIDIAN_START"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TimeHourEnd"
+    IsNotNull="true"
+    ColumnName="TIME_HOUR_END"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="TimeMinEnd"
+    IsNotNull="true"
+    ColumnName="TIME_MIN_END"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR"/>
+  <Attribute
+    Name="TimeMeridianEnd"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TIME_MERIDIAN_END"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Appointment"
+    Association="model.assoc.AppointmentFk1Assoc"
+    AssociationEnd="model.assoc.AppointmentFk1Assoc.Appointment"
+    AssociationOtherEnd="model.assoc.AppointmentFk1Assoc.Doctor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Address"
+    Association="model.assoc.DoctorFk1Assoc"
+    AssociationEnd="model.assoc.DoctorFk1Assoc.Address"
+    AssociationOtherEnd="model.assoc.DoctorFk1Assoc.Doctor"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DoctorChk1">
+    <DesignTime>
+      <Attr Name="_checkCondition" Value="Balance >=0"/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DOCTOR_CHK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="DoctorPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DOCTOR_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.DoctorEO.DoctorId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DoctorFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADDRESS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DOCTOR_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.DoctorEO.AddressId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

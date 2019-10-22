@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="AppointmentHistoryDoctorFlow_AppointmentHistoryDoctorFlow_CreateInsertPageDef" Package="ui.flow"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MedicalConsumption1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="MedicalConsumption1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MedicalConsumption1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

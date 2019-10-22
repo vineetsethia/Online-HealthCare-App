@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="ScheduledAppointmentsPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initDocIdCall" taskFlowId="WEB-INF/ui/flow/initDoctorId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScheduledAppointmentDoctor1" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="ScheduledAppointmentDoctor1Iterator"/>
+    <searchRegion Binds="ScheduledAppointmentDoctor1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ScheduledAppointmentDoctor1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ScheduledAppointmentDoctor1Iterator" id="ScheduledAppointmentDoctor1">
+      <nodeDefinition DefName="model.uiview.ScheduledAppointmentDoctorVO" Name="ScheduledAppointmentDoctor10">
+        <AttrNames>
+          <Item Value="AppointmentId"/>
+          <Item Value="AppointmentDate"/>
+          <Item Value="TimeHour"/>
+          <Item Value="TimeMin"/>
+          <Item Value="TimeMeridian"/>
+          <Item Value="AppointmentStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ScheduledAppointmentDoctor1Iterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AppModuleAMDataControl.ScheduledAppointmentDoctor1" DataControl="AppModuleAMDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{row.AppointmentId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

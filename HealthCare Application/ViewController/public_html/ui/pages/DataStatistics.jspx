@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="DataStatistics.jspx" id="d1">
+            <af:messages id="m1"/>
+             <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="adminProfile"/>
+                            <af:button text="#{viewcontrollerBundle.DATA_STATISTICS}" id="b2"
+                                       inlineStyle="width: 200px;" action="dataStatistics"/>
+                            <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                                       inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.DATA_STATISTICS}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelSplitter id="ps1" inlineStyle="width:1301px;" splitterPosition="618">
+                        <f:facet name="first">
+                            <af:panelFormLayout id="pfl1">
+                                <f:facet name="footer"/>
+                                <dvt:pieChart id="pieChart1" var="row"
+                                              value="#{bindings.PatientInCity1.collectionModel}"
+                                              title="Number of Patients v/s  City">
+                                    <dvt:chartLegend id="cl1"/>
+                                    <dvt:pieDataItem id="di1" label="#{row.City}" value="#{row.NumberOfPatients}"/>
+                                </dvt:pieChart>
+                            </af:panelFormLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelFormLayout id="pfl2">
+                                <f:facet name="footer"/>
+                                <dvt:pieChart id="pieChart2" var="row"
+                                              value="#{bindings.DoctorInCity1.collectionModel}"
+                                              title="Number of Doctors v/s City">
+                                    <dvt:chartLegend id="cl2"/>
+                                    <dvt:pieDataItem id="di2" label="#{row.City}" value="#{row.NumberOfDoctors}"/>
+                                </dvt:pieChart>
+                            </af:panelFormLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                            <af:spacer width="10" height="30" id="s1"/>
+                            <af:panelFormLayout id="pfl4">
+                        <f:facet name="footer"/>
+                        <dvt:areaChart id="areaChart1" var="row"
+                                       value="#{bindings.AppointmentsRegisteredByDate1.collectionModel}"
+                                       title="Number of appointments registered v/s Date">
+                            <dvt:chartLegend id="cl3"/>
+                            <f:facet name="dataStamp">
+                                <dvt:chartDataItem id="di3"
+                                                   series="#{bindings.AppointmentsRegisteredByDate1.hints.AppointmentsRegistered.label}"
+                                                   value="#{row.AppointmentsRegistered}"
+                                                   group="#{row.RegistrationDate}"/>
+                            </f:facet>
+                        </dvt:areaChart>
+                    </af:panelFormLayout>
+                            <af:spacer width="10" height="30" id="s2"/>
+                            <af:panelSplitter id="ps2" inlineStyle="width: 100%;" splitterPosition="618">
+                        <f:facet name="first">
+                            <af:panelFormLayout id="pfl5">
+                                <f:facet name="footer"/>
+                                <dvt:barChart orientation="vertical" id="barChart1" var="row"
+                                              value="#{bindings.AppointmentByPatient1.collectionModel}"
+                                              title="Number of appointments v/s Patient">
+                                    <dvt:chartLegend id="cl4"/>
+                                    <f:facet name="dataStamp">
+                                        <dvt:chartDataItem id="di4"
+                                                           series="#{bindings.AppointmentByPatient1.hints.AppointmentsRegistered.label}"
+                                                           value="#{row.AppointmentsRegistered}"
+                                                           group="#{row.PatientId}"/>
+                                    </f:facet>
+                                </dvt:barChart>
+                            </af:panelFormLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelFormLayout id="pfl6">
+                                <f:facet name="footer"/>
+                                <dvt:barChart orientation="vertical" id="barChart2" var="row"
+                                              value="#{bindings.AppointmentsByDoctor1.collectionModel}"
+                                              title="Number of appointments v/s Doctor">
+                                    <dvt:chartLegend id="cl5"/>
+                                    <f:facet name="dataStamp">
+                                        <dvt:chartDataItem id="di5"
+                                                           series="#{bindings.AppointmentsByDoctor1.hints.AppointmentsRegistered.label}"
+                                                           value="#{row.AppointmentsRegistered}"
+                                                           group="#{row.DoctorId}"/>
+                                    </f:facet>
+                                </dvt:barChart>
+                            </af:panelFormLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </af:panelHeader>
+            </af:form>
+            </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

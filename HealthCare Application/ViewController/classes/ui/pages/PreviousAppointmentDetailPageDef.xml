@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="PreviousAppointmentDetailPageDef" Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PreviousAppointmentDoctor2" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="PreviousAppointmentDoctor2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="AppointmentId">
+      <AttrNames>
+        <Item Value="AppointmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="AppointmentDate">
+      <AttrNames>
+        <Item Value="AppointmentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="TimeHour">
+      <AttrNames>
+        <Item Value="TimeHour"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="TimeMin">
+      <AttrNames>
+        <Item Value="TimeMin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="TimeMeridian">
+      <AttrNames>
+        <Item Value="TimeMeridian"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="AppointmentStatus">
+      <AttrNames>
+        <Item Value="AppointmentStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAppointmentDoctor2Iterator" id="AverageRating">
+      <AttrNames>
+        <Item Value="AverageRating"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

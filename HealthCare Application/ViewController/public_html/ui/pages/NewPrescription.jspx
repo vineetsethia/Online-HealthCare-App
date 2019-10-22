@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="NewPrescription.jspx" id="d1">
+            <af:messages id="m1"/>
+             <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="doctorProfile"/>
+                            <af:button text="#{viewcontrollerBundle.PREVIOUS_APPOINTMENTS}" id="b5"
+                                       inlineStyle="width:200px;" action="previousAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                                       inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.ADD_NEW_PRESCRIPTION}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                            <af:panelFormLayout id="pfl1">
+                                <af:selectOneChoice value="#{bindings.Category.inputValue}"
+                                                    label="#{bindings.Category.label}"
+                                                    required="#{bindings.Category.hints.mandatory}"
+                                                    shortDesc="#{bindings.Category.hints.tooltip}" id="soc1">
+                                    <f:selectItems value="#{bindings.Category.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.Category.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                                              required="#{bindings.Name.hints.mandatory}"
+                                              columns="#{bindings.Name.hints.displayWidth}"
+                                              maximumLength="#{bindings.Name.hints.precision}"
+                                              shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+                                    <f:validator binding="#{bindings.Name.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CourseDuration.inputValue}"
+                                              label="#{bindings.CourseDuration.hints.label}"
+                                              required="#{bindings.CourseDuration.hints.mandatory}"
+                                              columns="#{bindings.CourseDuration.hints.displayWidth}"
+                                              maximumLength="#{bindings.CourseDuration.hints.precision}"
+                                              shortDesc="#{bindings.CourseDuration.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.CourseDuration.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.DosagePerDay.inputValue}"
+                                              label="#{bindings.DosagePerDay.hints.label}"
+                                              required="#{bindings.DosagePerDay.hints.mandatory}"
+                                              columns="#{bindings.DosagePerDay.hints.displayWidth}"
+                                              maximumLength="#{bindings.DosagePerDay.hints.precision}"
+                                              shortDesc="#{bindings.DosagePerDay.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.DosagePerDay.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Description.inputValue}"
+                                              label="#{bindings.Description.hints.label}"
+                                              required="#{bindings.Description.hints.mandatory}"
+                                              columns="#{bindings.Description.hints.displayWidth}"
+                                              maximumLength="#{bindings.Description.hints.precision}"
+                                              shortDesc="#{bindings.Description.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.Description.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:button text="Submit" id="b1" action="create"/>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

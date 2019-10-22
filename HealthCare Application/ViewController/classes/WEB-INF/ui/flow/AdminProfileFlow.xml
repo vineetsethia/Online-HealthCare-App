@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="AdminProfileFlow">
+    <default-activity>AdminProfile</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__7">
+      <name>adminId</name>
+      <value>#{sessionScope.adminId}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="AdminProfile">
+      <page>/ui/pages/AdminProfile.jspx</page>
+    </view>
+    <view id="EditAdminProfile">
+      <page>/ui/pages/EditAdminProfile.jspx</page>
+    </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>adminProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="DataStatistics">
+      <page>/ui/pages/DataStatistics.jspx</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>EditAdminProfile</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>AdminProfile</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>editAdminProfile</from-outcome>
+        <to-activity-id>EditAdminProfile</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>adminProfile</from-outcome>
+        <to-activity-id>AdminProfile</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__1">
+        <from-outcome>dataStatistics</from-outcome>
+        <to-activity-id>DataStatistics</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

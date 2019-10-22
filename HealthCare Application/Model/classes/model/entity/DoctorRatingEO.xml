@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DoctorRatingEO"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DOCTOR_RATING"
+  AliasName="DoctorRatingEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="DoctorRatingId"
+    ColumnName="DOCTOR_RATING_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR_RATING"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="AppointmentId"
+    IsNotNull="true"
+    ColumnName="APPOINTMENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR_RATING"/>
+  <Attribute
+    Name="RatingScore"
+    IsNotNull="true"
+    ColumnName="RATING_SCORE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCTOR_RATING"/>
+  <AccessorAttribute
+    Name="Appointment"
+    Association="model.assoc.DoctorRatingFk1Assoc"
+    AssociationEnd="model.assoc.DoctorRatingFk1Assoc.Appointment"
+    AssociationOtherEnd="model.assoc.DoctorRatingFk1Assoc.DoctorRating"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DoctorRatingPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DOCTOR_RATING_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.DoctorRatingEO.DoctorRatingId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DoctorRatingFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="APPOINTMENT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DOCTOR_RATING_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.DoctorRatingEO.AppointmentId"/>
+    </AttrArray>
+  </Key>
+</Entity>

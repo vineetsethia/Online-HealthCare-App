@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="AppointmentHistoryDoctorFlow">
+    <default-activity>PreviousAppointments</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__16">
+      <managed-bean-name>prate</managed-bean-name>
+      <managed-bean-class>view.PatientRateBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="PreviousAppointments">
+      <page>/ui/pages/PreviousAppointments.jspx</page>
+    </view>
+    <view id="NewPrescription">
+      <page>/ui/pages/NewPrescription.jspx</page>
+    </view>
+    <method-call id="Commit1">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>previousAppointment</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PreviousAppointmentDetail">
+      <page>/ui/pages/PreviousAppointmentDetail.jspx</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>doctorProfile</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="CreateInsert1">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="RatePatient">
+      <page>/ui/pages/RatePatient.jspx</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>PreviousAppointments</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>update</from-outcome>
+        <to-activity-id>Commit1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>previousAppointmentDetail</from-outcome>
+        <to-activity-id>PreviousAppointmentDetail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>add</from-outcome>
+        <to-activity-id>CreateInsert1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>NewPrescription</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>create</from-outcome>
+        <to-activity-id>Commit1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>previousAppointment</from-outcome>
+        <to-activity-id>PreviousAppointments</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>doctorProfile</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>CreateInsert1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>NewPrescription</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>PreviousAppointmentDetail</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>ratePatient</from-outcome>
+        <to-activity-id>RatePatient</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>RatePatient</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>PreviousAppointmentDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

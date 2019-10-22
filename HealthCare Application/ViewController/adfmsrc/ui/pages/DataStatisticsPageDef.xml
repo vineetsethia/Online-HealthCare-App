@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="DataStatisticsPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PatientInCity1" RangeSize="-1" DataControl="AppModuleAMDataControl" id="PatientInCity1Iterator"/>
+    <iterator Binds="DoctorInCity1" RangeSize="-1" DataControl="AppModuleAMDataControl" id="DoctorInCity1Iterator"/>
+    <iterator Binds="AppointmentsRegisteredByDate1" RangeSize="-1" DataControl="AppModuleAMDataControl"
+              id="AppointmentsRegisteredByDate1Iterator"/>
+    <iterator Binds="AppointmentByPatient1" RangeSize="-1" DataControl="AppModuleAMDataControl"
+              id="AppointmentByPatient1Iterator"/>
+    <iterator Binds="AppointmentsByDoctor1" RangeSize="-1" DataControl="AppModuleAMDataControl"
+              id="AppointmentsByDoctor1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PatientInCity1Iterator" id="PatientInCity1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.rvo.PatientInCityVO" Name="PatientInCity1">
+        <AttrNames>
+          <Item Value="NumberOfPatients"/>
+          <Item Value="City"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DoctorInCity1Iterator" id="DoctorInCity1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.rvo.DoctorInCityVO" Name="DoctorInCity1">
+        <AttrNames>
+          <Item Value="NumberOfDoctors"/>
+          <Item Value="City"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AppointmentsRegisteredByDate1Iterator" id="AppointmentsRegisteredByDate1"
+          ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.rvo.AppointmentsRegisteredByDateVO" Name="AppointmentsRegisteredByDate1">
+        <AttrNames>
+          <Item Value="AppointmentsRegistered"/>
+          <Item Value="RegistrationDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AppointmentByPatient1Iterator" id="AppointmentByPatient1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.rvo.AppointmentByPatientVO" Name="AppointmentByPatient1">
+        <AttrNames>
+          <Item Value="AppointmentsRegistered"/>
+          <Item Value="PatientId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AppointmentsByDoctor1Iterator" id="AppointmentsByDoctor1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.rvo.AppointmentsByDoctorVO" Name="AppointmentsByDoctor1">
+        <AttrNames>
+          <Item Value="AppointmentsRegistered"/>
+          <Item Value="DoctorId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

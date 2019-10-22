@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="VisitDoctor.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="b5"
+                                       inlineStyle="width:200px;" action="upcomingAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.CANCELLED_APPOINTMENTS}" id="b6"
+                                       inlineStyle="width: 200px;" action="cancelledAppointments"/>
+                            <af:button text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="b7"
+                                       inlineStyle="width: 200px;" action="medicalHistory"/>
+                           <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                           inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:panelHeader text="DoctorEO" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.SearchDoctorsQuery.queryDescriptor}"
+                                  model="#{bindings.SearchDoctorsQuery.queryModel}"
+                                  queryListener="#{bindings.SearchDoctorsQuery.processQuery}"
+                                  queryOperationListener="#{bindings.SearchDoctorsQuery.processQueryOperation}"
+                                  resultComponentId="::resId1"/>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.DoctorJoinAddress1.collectionModel}" var="row"
+                              rows="#{bindings.DoctorJoinAddress1.rangeSize}"
+                              emptyText="#{bindings.DoctorJoinAddress1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.DoctorJoinAddress1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.DoctorJoinAddress1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.DoctorJoinAddress1.rangeSize}"
+                              filterModel="#{bindings.SearchDoctorsQuery.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.SearchDoctorsQuery.processQuery}" varStatus="vs" id="resId1">
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.DoctorId.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorJoinAddress1.hints.DoctorId.label}"
+                                   id="resId1c1">
+                            <af:link id="l1" action="doctorDetails">
+                                <af:outputText shortDesc="#{bindings.DoctorJoinAddress1.hints.DoctorId.tooltip}"
+                                               id="ot1" value="#{row.DoctorId}"/>
+                            </af:link>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.FirstName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorJoinAddress1.hints.FirstName.label}"
+                                   id="resId1c2">
+                            <af:outputText value="#{row.FirstName}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.FirstName.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.LastName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorJoinAddress1.hints.LastName.label}"
+                                   id="resId1c3">
+                            <af:outputText value="#{row.LastName}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.LastName.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.Specialization.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.DoctorJoinAddress1.hints.Specialization.label}" id="resId1c4">
+                            <af:outputText value="#{row.Specialization}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.Specialization.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.AverageRating.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.DoctorJoinAddress1.hints.AverageRating.label}" id="resId1c5">
+                            <af:outputText value="#{row.AverageRating}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.AverageRating.tooltip}"
+                                           id="ot5">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.DoctorJoinAddress1.hints.AverageRating.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.RatingCount.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.DoctorJoinAddress1.hints.RatingCount.label}" id="resId1c6">
+                            <af:outputText value="#{row.RatingCount}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.RatingCount.tooltip}"
+                                           id="ot6">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.DoctorJoinAddress1.hints.RatingCount.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorJoinAddress1.hints.City.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorJoinAddress1.hints.City.label}"
+                                   id="resId1c7">
+                            <af:outputText value="#{row.City}"
+                                           shortDesc="#{bindings.DoctorJoinAddress1.hints.City.tooltip}" id="ot7"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="initAdminId_initAdminId_initAdminIdPageDef" Package="ui.flow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="initAdminId" RequiresUpdateModel="true" Action="invokeMethod" MethodName="initAdminId"
+                  IsViewObjectMethod="false" DataControl="AppModuleAMDataControl"
+                  InstanceName="data.AppModuleAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

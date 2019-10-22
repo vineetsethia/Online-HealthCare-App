@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="UpcomingAppointments.jspx" id="d1">
+            <af:messages id="m1"/>
+             <af:pageTemplate viewId="/ui/pages/template/LoginTemplate.jspx" id="pt1">
+             <f:facet name="centralContent">
+                    <af:form id="f2">
+                        <af:panelFormLayout id="pfl3" inlineStyle="height:400px;">
+                            <f:facet name="footer"/>
+                            <af:button text="#{viewcontrollerBundle.MY_PROFILE}" id="b3" inlineStyle="width: 200px;"
+                                       action="patientProfile"/>
+                            <af:button text="#{viewcontrollerBundle.SCHEDULE_APPOINTMENT}" id="b4"
+                                       inlineStyle="width: 200px;" action="scheduleAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="b5"
+                                       inlineStyle="width:200px;" action="upcomingAppointment"/>
+                            <af:button text="#{viewcontrollerBundle.CANCELLED_APPOINTMENTS}" id="b6"
+                                       inlineStyle="width: 200px;" action="cancelledAppointments"/>
+                            <af:button text="#{viewcontrollerBundle.MEDICAL_HISTORY}" id="b7"
+                                       inlineStyle="width: 200px;" action="medicalHistory"/>
+                           <af:button text="#{viewcontrollerBundle.LOGOUT}" id="b70" action="#{login.logout}"
+                                       inlineStyle="width: 200px;"/>
+                        </af:panelFormLayout>
+                    </af:form>
+                </f:facet>
+             
+                    <f:facet name="rightNavigation">
+            <af:form id="f1">
+                <af:panelHeader text="#{viewcontrollerBundle.UPCOMING_APPOINTMENT}" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="#{viewcontrollerBundle.CANCEL_APPOINTMENT}" id="b1"
+                                       action="cancelAppointment"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.UpcomingAppointmentPatient1.collectionModel}" var="row"
+                              rows="#{bindings.UpcomingAppointmentPatient1.rangeSize}"
+                              emptyText="#{bindings.UpcomingAppointmentPatient1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.UpcomingAppointmentPatient1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.UpcomingAppointmentPatient1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.UpcomingAppointmentPatient1.rangeSize}"
+                              filterModel="#{bindings.UpcomingAppointmentPatient1Query.queryDescriptor}"
+                              filterVisible="true"
+                              queryListener="#{bindings.UpcomingAppointmentPatient1Query.processQuery}" varStatus="vs"
+                              id="t2">
+                        <af:column sortProperty="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentId.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentId.label}"
+                                   id="c1" width="100">
+                            <af:link id="l1" action="upcomingAppointmentDetail">
+                                <af:outputText value="#{row.AppointmentId}"
+                                               shortDesc="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentId.format}"/>
+                                </af:outputText>
+                            </af:link>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentDate.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentDate.label}"
+                                   id="c2" width="124">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.UpcomingAppointmentPatient1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AppointmentDate.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentDate.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.AppointmentDate}"
+                                           shortDesc="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentDate.tooltip}"
+                                           id="ot2">
+                                <af:convertDateTime pattern="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.UpcomingAppointmentPatient1.hints.TimeHour.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.UpcomingAppointmentPatient1.hints.TimeHour.label}" id="c3"
+                                   width="135">
+                            <af:outputText value="#{row.TimeHour}:#{row.TimeMin} #{row.TimeMeridian}"
+                                           shortDesc="#{bindings.UpcomingAppointmentPatient1.hints.TimeHour.tooltip}"
+                                           id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.UpcomingAppointmentPatient1.hints.TimeHour.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.UpcomingAppointmentPatient1.hints.RegistrationTimestamp.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.UpcomingAppointmentPatient1.hints.RegistrationTimestamp.label}"
+                                   id="c6" width="171">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.UpcomingAppointmentPatient1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.RegistrationTimestamp.value}"
+                                              id="id2">
+                                    <af:convertDateTime pattern="#{bindings.UpcomingAppointmentPatient1.hints.RegistrationTimestamp.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.RegistrationTimestamp}"
+                                           shortDesc="#{bindings.UpcomingAppointmentPatient1.hints.RegistrationTimestamp.tooltip}"
+                                           id="ot6">
+                                <af:convertDateTime pattern="#{bindings.UpcomingAppointmentPatient1.hints.RegistrationTimestamp.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentStatus.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentStatus.label}"
+                                   id="c7" width="678">
+                            <af:outputText value="#{row.AppointmentStatus}"
+                                           shortDesc="#{bindings.UpcomingAppointmentPatient1.hints.AppointmentStatus.tooltip}"
+                                           id="ot7"/>
+                        </af:column>
+                    </af:table>
+                </af:panelHeader>
+            </af:form>
+             </f:facet>
+                </af:pageTemplate>
+        </af:document>
+    </f:view>
+</jsp:root>

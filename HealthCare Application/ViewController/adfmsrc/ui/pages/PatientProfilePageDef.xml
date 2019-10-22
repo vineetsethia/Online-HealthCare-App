@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="PatientProfilePageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initPatientIdCall" taskFlowId="WEB-INF/ui/flow/initPatientId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="Patient3" RangeSize="25" DataControl="AppModuleAMDataControl" id="Patient3Iterator"/>
+    <iterator Binds="Address2" RangeSize="25" DataControl="AppModuleAMDataControl" id="Address2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Patient3Iterator" id="PatientId">
+      <AttrNames>
+        <Item Value="PatientId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="ContactNumber">
+      <AttrNames>
+        <Item Value="ContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="AverageRating">
+      <AttrNames>
+        <Item Value="AverageRating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="Balance">
+      <AttrNames>
+        <Item Value="Balance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="Street">
+      <AttrNames>
+        <Item Value="Street"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="Area">
+      <AttrNames>
+        <Item Value="Area"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="StateProvince">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address2Iterator" id="Pin">
+      <AttrNames>
+        <Item Value="Pin"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57"
+                id="initDoctorId_initDoctorId_initDocIdPageDef" Package="ui.flow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="initDocId" RequiresUpdateModel="true" Action="invokeMethod" MethodName="initDocId"
+                  IsViewObjectMethod="false" DataControl="AppModuleAMDataControl"
+                  InstanceName="data.AppModuleAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

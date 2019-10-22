@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="NewPrescriptionPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MedicalConsumption3" RangeSize="25" DataControl="AppModuleAMDataControl"
+              id="MedicalConsumption3Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="MedicalConsumption3Iterator" StaticList="false" Uses="LOV_Category" id="Category"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="MedicalConsumption3Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MedicalConsumption3Iterator" id="CourseDuration">
+      <AttrNames>
+        <Item Value="CourseDuration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MedicalConsumption3Iterator" id="DosagePerDay">
+      <AttrNames>
+        <Item Value="DosagePerDay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MedicalConsumption3Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

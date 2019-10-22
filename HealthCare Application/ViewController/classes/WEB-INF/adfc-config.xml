@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="LoginUser">
+    <page>/ui/pages/LoginUser.jspx</page>
+  </view>
+  <view id="Error">
+    <page>/ui/pages/Error.jspx</page>
+  </view>
+  <task-flow-call id="PatientProfileFlow">
+    <task-flow-reference>
+      <document>/WEB-INF/ui/flow/PatientProfileFlow.xml</document>
+      <id>PatientProfileFlow</id>
+    </task-flow-reference>
+    <input-parameter id="__3">
+      <name>patientId</name>
+      <value>#{login.patientId}</value>
+    </input-parameter>
+  </task-flow-call>
+  <view id="RegisterDoctor">
+    <page>/ui/pages/RegisterDoctor.jspx</page>
+  </view>
+  <view id="RegisterPatient">
+    <page>/ui/pages/RegisterPatient.jspx</page>
+  </view>
+  <task-flow-call id="DoctorProfileFlow">
+    <task-flow-reference>
+      <document>/WEB-INF/ui/flow/DoctorProfileFlow.xml</document>
+      <id>DoctorProfileFlow</id>
+    </task-flow-reference>
+    <input-parameter id="__15">
+      <name>doctorId</name>
+      <value>#{login.doctorId}</value>
+    </input-parameter>
+  </task-flow-call>
+  <task-flow-call id="AdminProfileFlow">
+    <task-flow-reference>
+      <document>/WEB-INF/ui/flow/AdminProfileFlow.xml</document>
+      <id>AdminProfileFlow</id>
+    </task-flow-reference>
+    <input-parameter id="__23">
+      <name>adminId</name>
+      <value>#{login.adminId}</value>
+    </input-parameter>
+  </task-flow-call>
+  <view id="SuccessRegister">
+    <page>/ui/pages/SuccessRegister.jspx</page>
+  </view>
+  <control-flow-rule id="__2">
+    <from-activity-id>LoginUser</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome>successPatient</from-outcome>
+      <to-activity-id>PatientProfileFlow</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>successDoctor</from-outcome>
+      <to-activity-id>DoctorProfileFlow</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>successAdmin</from-outcome>
+      <to-activity-id>AdminProfileFlow</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__9">
+      <from-outcome>registerDoctor</from-outcome>
+      <to-activity-id>RegisterDoctor</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__10">
+      <from-outcome>registerPatient</from-outcome>
+      <to-activity-id>RegisterPatient</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome>error</from-outcome>
+      <to-activity-id>Error</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__18">
+      <from-outcome>loginUser</from-outcome>
+      <to-activity-id>LoginUser</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__4">
+    <from-activity-id>RegisterDoctor</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>successRegister</from-outcome>
+      <to-activity-id>SuccessRegister</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id>RegisterPatient</from-activity-id>
+    <control-flow-case id="__11">
+      <from-outcome>successRegister</from-outcome>
+      <to-activity-id>SuccessRegister</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>login</managed-bean-name>
+    <managed-bean-class>view.LoginBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name>preg</managed-bean-name>
+    <managed-bean-class>view.PatientRegistrationBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__21">
+    <managed-bean-name>dreg</managed-bean-name>
+    <managed-bean-class>view.DoctorRegistrationBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

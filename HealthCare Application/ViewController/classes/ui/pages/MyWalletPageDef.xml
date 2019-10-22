@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="MyWalletPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="initPatientIdCall" taskFlowId="WEB-INF/ui/flow/initPatientId.xml"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="Patient3" RangeSize="25" DataControl="AppModuleAMDataControl" id="Patient3Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Patient3Iterator" id="Balance">
+      <AttrNames>
+        <Item Value="Balance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Patient3Iterator" id="LastAddedBalance">
+      <AttrNames>
+        <Item Value="LastAddedBalance"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

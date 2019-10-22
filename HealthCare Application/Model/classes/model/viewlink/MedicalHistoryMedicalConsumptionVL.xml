@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MedicalHistoryMedicalConsumptionVL"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.viewlink.MedicalHistoryMedicalConsumptionVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="MedicalHistory"
+    Cardinality="1"
+    Source="true"
+    Owner="model.uiview.MedicalHistoryVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="MedicalHistory"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.uiview.MedicalHistoryVO.AppointmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="MedicalConsumption"
+    Cardinality="-1"
+    Owner="model.uiview.MedicalConsumptionVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="MedicalConsumption"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.uiview.MedicalConsumptionVO.AppointmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

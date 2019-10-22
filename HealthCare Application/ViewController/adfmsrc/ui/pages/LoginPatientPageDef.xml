@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="LoginPatientPageDef"
+                Package="ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="loginAuthentication" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="loginAuthentication" IsViewObjectMethod="false" DataControl="AppModuleAMDataControl"
+                  InstanceName="data.AppModuleAMDataControl.dataProvider"
+                  ReturnName="data.AppModuleAMDataControl.methodResults.loginAuthentication_AppModuleAMDataControl_dataProvider_loginAuthentication_result">
+      <NamedData NDName="Username" NDType="java.lang.String"/>
+      <NamedData NDName="Password" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="loginAuthenticationDoctor" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="loginAuthenticationDoctor" IsViewObjectMethod="false" DataControl="AppModuleAMDataControl"
+                  InstanceName="data.AppModuleAMDataControl.dataProvider"
+                  ReturnName="data.AppModuleAMDataControl.methodResults.loginAuthenticationDoctor_AppModuleAMDataControl_dataProvider_loginAuthenticationDoctor_result">
+      <NamedData NDName="Username" NDType="java.lang.String"/>
+      <NamedData NDName="Password" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="loginAuthenticationAdmin" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="loginAuthenticationAdmin" IsViewObjectMethod="false" DataControl="AppModuleAMDataControl"
+                  InstanceName="data.AppModuleAMDataControl.dataProvider"
+                  ReturnName="data.AppModuleAMDataControl.methodResults.loginAuthenticationAdmin_AppModuleAMDataControl_dataProvider_loginAuthenticationAdmin_result">
+      <NamedData NDName="Username" NDType="java.lang.String"/>
+      <NamedData NDName="Password" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
